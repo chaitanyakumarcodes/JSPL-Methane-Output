@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methane Output Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure body takes full height */
+            background-color: #f4f4f9;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px; /* Width of the container */
+            box-sizing: border-box; /* Include padding in width calculation */
+            margin: 20px; /* Add margin to ensure container is not too close to the edges */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="submit"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Include padding in width calculation */
+        }
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e0f7fa;
+            border: 1px solid #007BFF;
+            border-radius: 5px;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter the Values for Prediction</h1>
+        <form action="/predict" method="post">
+            <label for="Count">Count:</label>
+            <input type="text" id="Count" name="Count" required>
+            
+            <label for="Syngas_Header_Pressure">Syngas Header Pressure:</label>
+            <input type="text" id="Syngas_Header_Pressure" name="Syngas_Header_Pressure" required>
+
+            <label for="Avg_TR5">Avg TR5:</label>
+            <input type="text" id="Avg_TR5" name="Avg_TR5" required>
+
+            <label for="Avg_HP_BFW">Avg HP BFW:</label>
+            <input type="text" id="Avg_HP_BFW" name="Avg_HP_BFW" required>
+
+            <label for="Avg_TR4">Avg TR4:</label>
+            <input type="text" id="Avg_TR4" name="Avg_TR4" required>
+
+            <label for="Avg_CO2">Avg CO2:</label>
+            <input type="text" id="Avg_CO2" name="Avg_CO2" required>
+
+            <label for="Avg_HP_O2">Avg HP O2:</label>
+            <input type="text" id="Avg_HP_O2" name="Avg_HP_O2" required>
+
+            <label for="VM_wt">VM(wt%):</label>
+            <input type="text" id="VM_wt" name="VM_wt" required>
+
+            <label for="ASH_wt">ASH(wt%):</label>
+            <input type="text" id="ASH_wt" name="ASH_wt" required>
+
+            <label for="FC_wt">FC(wt%):</label>
+            <input type="text" id="FC_wt" name="FC_wt" required>
+
+            <input type="submit" value="Predict">
+        </form>
+        
+        {% if prediction is not none %}
+        <div class="result">
+            <h2>Prediction Result</h2>
+            <p>The predicted Methane Output is: {{ prediction }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
