@@ -139,10 +139,6 @@ python app.py
 ## 8. Results & Evaluation
 
 * The SVR model achieved the best trade-off between prediction accuracy and generalization.
-* Performance metrics:
-
-  * **MAE:** *[insert value]*
-  * **RMSE:** *[insert value]*
 * Visualizations in the notebook highlight feature importance and residual trends.
 * The deployed app enables near-real-time methane yield predictions for process optimization.
 
