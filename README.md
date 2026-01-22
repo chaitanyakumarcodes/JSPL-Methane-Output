@@ -1,6 +1,6 @@
 # JSPL Methane Output Prediction
 
-A machine-learning solution for forecasting methane output from a coal-gasification plant at Jindal Stainless Power Limited (JSPL).
+A machine-learning solution for predicting methane output from a coal-gasification plant at Jindal Stainless Power Limited (JSPL).
 
 ---
 
